@@ -18,6 +18,27 @@ public class HomeController : Controller
         return View();
     }
 
+    public IActionResult Sala1()
+    {
+        return View();
+    }
+
+    public IActionResult Sala2()
+    {
+        return View();
+    }
+
+    public IActionResult Sala3()
+    {
+        return View();
+    }
+    
+    public IActionResult Incorrecto()
+{
+    return View();
+}
+
+
     public IActionResult Privacy()
     {
         return View();

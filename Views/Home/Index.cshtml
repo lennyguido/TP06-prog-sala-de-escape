@@ -1,11 +1,37 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+﻿@{
+     ViewData["Title"] = "Inicio";
+}
+
+<header class="hero">
+    <section class="hero__content">
+        <p class="hero__eyebrow">Sala de escape pirata</p>
+        <h1>Bienvenido a la sala de escape</h1>
+        <p>
+            Una aventura entre mapas antiguos, cofres ocultos y pistas que solo la tripulación más astuta podrá resolver.
+        </p>
+        <a class="hero__button" href='@Url.Action("Sala1", "Home")'>Comenzar la travesía</a>
+    </section>
+</header>
+
+<main>
+    <section id="reto" class="info-section">
+        <article class="info-card">
+            <h2>Objetivo</h2>
+            <p>Encontrar el tesoro antes de que el capitán cierre el barco y desaparezca en el mar.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Temática</h2>
+            <p>Islas perdidas, brújulas, barcos y pistas escondidas en cada rincón de la cubierta.</p>
+        </article>
+
+        <article class="info-card">
+            <h2>Preparación</h2>
+            <ul>
+                <li>Observa cada detalle.</li>
+                <li>Trabaja en equipo.</li>
+                <li>Resuelve el misterio.</li>
+            </ul>
+        </article>
+    </section>
+</main>

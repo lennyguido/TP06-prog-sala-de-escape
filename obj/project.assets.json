@@ -1213,23 +1213,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\49757661\\.nuget\\packages\\": {},
+    "C:\\Users\\50154645\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\49757661\\Downloads\\TP06-prog-sala-de-escape\\Tp06.csproj",
+      "projectUniqueName": "C:\\Users\\50154645\\Downloads\\TP06-prog-sala-de-escape\\Tp06.csproj",
       "projectName": "Tp06",
-      "projectPath": "C:\\Users\\49757661\\Downloads\\TP06-prog-sala-de-escape\\Tp06.csproj",
-      "packagesPath": "C:\\Users\\49757661\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\49757661\\Downloads\\TP06-prog-sala-de-escape\\obj\\",
+      "projectPath": "C:\\Users\\50154645\\Downloads\\TP06-prog-sala-de-escape\\Tp06.csproj",
+      "packagesPath": "C:\\Users\\50154645\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\50154645\\Downloads\\TP06-prog-sala-de-escape\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\49757661\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\50154645\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
