@@ -3,55 +3,20 @@
 }
 
 <main class="sala">
-
     <section class="sala-contenido">
-
-        <h1>Sala 2</h1>
-
-        <p>
-            Después de encontrar la moneda, una nueva puerta aparece frente a vos.
-        </p>
-
-        <p>
-            Sobre la puerta hay una inscripción:
-        </p>
+        <h1>@ViewBag.Sala.Nombre</h1>
+        <p>@ViewBag.Sala.Narrativa</p>
 
         <section class="acertijo">
-
             <h2>Acertijo</h2>
+            <p>@ViewBag.Sala.Acertijo</p>
 
-            <p>
-                Tengo agujas, pero no sé coser.
-                Tengo números, pero no sé contar.
-                ¿Qué soy?
-            </p>
-
-           <div class="opciones">
-
-    <a class="opcion"
-       href="@Url.Action("Incorrecto", "Home")">
-        Una brújula
-    </a>
-
-    <a class="opcion"
-       href="@Url.Action("Incorrecto", "Home")">
-        Un mapa
-    </a>
-
-    <a class="opcion"
-       href="@Url.Action("Sala3", "Home")">
-        Un reloj
-    </a>
-
-    <a class="opcion"
-       href="@Url.Action("Incorrecto", "Home")">
-        Un cofre
-    </a>
-
-</div>
-
+            <div class="opciones">
+                <a class="opcion" href="@Url.Action("Sala2", "Home", new { respuesta = "brujula" })">Una brújula</a>
+                <a class="opcion" href="@Url.Action("Sala2", "Home", new { respuesta = "mapa" })">Un mapa</a>
+                <a class="opcion" href="@Url.Action("Sala2", "Home", new { respuesta = "reloj" })">Un reloj</a>
+                <a class="opcion" href="@Url.Action("Sala2", "Home", new { respuesta = "cofre" })">Un cofre</a>
+            </div>
         </section>
-
     </section>
-
 </main>

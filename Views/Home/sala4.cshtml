@@ -1,0 +1,22 @@
+@{
+    ViewData["Title"] = "Sala 4";
+}
+
+<main class="sala">
+    <section class="sala-contenido">
+        <h1>@ViewBag.Sala.Nombre</h1>
+        <p>@ViewBag.Sala.Narrativa</p>
+
+        <section class="acertijo">
+            <h2>Completá el mapa</h2>
+            <p>@ViewBag.Sala.Acertijo</p>
+
+            <div class="opciones">
+                <a class="opcion" href="@Url.Action("Sala4", "Home", new { respuesta = "camino" })">Camino</a>
+                <a class="opcion" href="@Url.Action("Sala4", "Home", new { respuesta = "lugar" })">Lugar</a>
+                <a class="opcion" href="@Url.Action("Sala4", "Home", new { respuesta = "punto" })">Punto</a>
+                <a class="opcion" href="@Url.Action("Sala4", "Home", new { respuesta = "final" })">Final</a>
+            </div>
+        </section>
+    </section>
+</main>

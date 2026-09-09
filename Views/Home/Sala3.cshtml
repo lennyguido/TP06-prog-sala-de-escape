@@ -3,15 +3,20 @@
 }
 
 <main class="sala">
-
     <section class="sala-contenido">
+        <h1>@ViewBag.Sala.Nombre</h1>
+        <p>@ViewBag.Sala.Narrativa</p>
 
-        <h1>Bienvenido a la Sala 3</h1>
+        <section class="acertijo">
+            <h2>Acertijo</h2>
+            <p>@ViewBag.Sala.Acertijo</p>
 
-        <p>
-            ¡Era la respuesta correcta!
-        </p>
-
+            <div class="opciones">
+                <a class="opcion" href="@Url.Action("Sala3", "Home", new { respuesta = "pozo" })">Un pozo</a>
+                <a class="opcion" href="@Url.Action("Sala3", "Home", new { respuesta = "agujero" })">Un agujero</a>
+                <a class="opcion" href="@Url.Action("Sala3", "Home", new { respuesta = "barril" })">Un barril</a>
+                <a class="opcion" href="@Url.Action("Sala3", "Home", new { respuesta = "cofre" })">Un cofre</a>
+            </div>
+        </section>
     </section>
-
 </main>

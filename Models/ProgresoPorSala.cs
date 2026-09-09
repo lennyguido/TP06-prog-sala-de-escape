@@ -1,4 +1,4 @@
-namespace TP06.Models;
+namespace Tp06.Models;
 
 public class ProgresoPorSala
 {

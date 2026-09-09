@@ -1,22 +1,11 @@
 @{
-    ViewData["Title"] = "Respuesta incorrecta";
+    ViewData["Title"] = "Incorrecto";
 }
 
 <main class="sala">
-
     <section class="sala-contenido">
-
-        <h1>Te equivocaste</h1>
-
-        <p>
-            Esa no era la respuesta correcta.
-        </p>
-
-        <a class="opcion"
-           href="@Url.Action("Sala2", "Home")">
-            Volver a la Sala 2
-        </a>
-
+        <h1>Respuesta incorrecta</h1>
+        <p>Esa no era la clave... probá de nuevo.</p>
+        <a class="hero__button" href="javascript:history.back()">Volver a intentar</a>
     </section>
-
 </main>

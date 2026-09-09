@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Identificate";
+}
+
+<main class="sala">
+    <section class="sala-contenido">
+        <h1>¿Cómo te llamás, tripulante?</h1>
+        <p>Ingresá tu nombre para comenzar la travesía.</p>
+
+        @if (ViewBag.Error != null)
+        {
+            <p style="color:red;">@ViewBag.Error</p>
+        }
+
+        <form asp-action="IniciarPartida" asp-controller="Home" method="post">
+            <input type="text" name="nombreParticipante" placeholder="Tu nombre..." />
+            <button type="submit" class="hero__button">Comenzar</button>
+        </form>
+    </section>
+</main>

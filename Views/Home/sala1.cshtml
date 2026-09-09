@@ -3,74 +3,51 @@
 }
 
 <main class="sala">
-
     <section class="sala-contenido">
-
-        <h1>Sala 1</h1>
-
-        <p>
-            El tesoro está más cerca de lo que parece.
-            Entre todas estas palabras se esconde la clave correcta.
-        </p>
-
-        <p>
-            Encontrá la palabra correcta para continuar.
-        </p>
+        <h1>@ViewBag.Sala.Nombre</h1>
+        <p>@ViewBag.Sala.Narrativa</p>
+        <p>@ViewBag.Sala.Acertijo</p>
 
         <div class="palabras">
-
-            <div class="palabra">BARCOS</div>
-            <div class="palabra">TESORO</div>
-            <div class="palabra">ISLOTE</div>
-            <div class="palabra">PIRATA</div>
-            <div class="palabra">MAPEAR</div>
-            <div class="palabra">COFRES</div>
-            <div class="palabra">ANCLAS</div>
-            <div class="palabra">NAVIOS</div>
-
-            <div class="palabra">BRUJAS</div>
-            <div class="palabra">ARENAS</div>
-            <div class="palabra">ESPADA</div>
-            <div class="palabra">MARINO</div>
-            <div class="palabra">ISLASA</div>
-            <div class="palabra">CUEVAS</div>
-            <div class="palabra">CORONA</div>
-            <div class="palabra">BOTELA</div>
-
-            <div class="palabra">PUERTO</div>
-            <div class="palabra">TIMONE</div>
-            <div class="palabra">MAREAS</div>
-
-            <a class="palabra"
-               href="@Url.Action("Sala2", "Home")">
-                MONEDA
-            </a>
-
-            <div class="palabra">PERLAS</div>
-            <div class="palabra">CRANEO</div>
-            <div class="palabra">RUMBOS</div>
-            <div class="palabra">REMERO</div>
-
-            <div class="palabra">TABLAS</div>
-            <div class="palabra">FAROES</div>
-            <div class="palabra">LAGUNA</div>
-            <div class="palabra">CUERDA</div>
-            <div class="palabra">BODEGA</div>
-            <div class="palabra">VELERO</div>
-            <div class="palabra">MARFIL</div>
-            <div class="palabra">SALADO</div>
-
-            <div class="palabra">CORSAR</div>
-            <div class="palabra">CAÑONS</div>
-            <div class="palabra">BAHIAA</div>
-            <div class="palabra">BALSAS</div>
-            <div class="palabra">GRUTAS</div>
-            <div class="palabra">NORTEA</div>
-            <div class="palabra">BRUJUL</div>
-            <div class="palabra">SECRET</div>
-
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "barcos" })">BARCOS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "moneda" })">MONEDA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "islote" })">ISLOTE</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "pirata" })">PIRATA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "mapear" })">MAPEAR</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "cofres" })">COFRES</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "anclas" })">ANCLAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "navios" })">NAVIOS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "brujas" })">BRUJAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "arenas" })">ARENAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "espada" })">ESPADA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "marino" })">MARINO</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "islasa" })">ISLASA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "cuevas" })">CUEVAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "corona" })">CORONA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "botela" })">BOTELA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "puerto" })">PUERTO</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "timone" })">TIMONE</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "mareas" })">MAREAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "perlas" })">PERLAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "craneo" })">CRANEO</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "rumbos" })">RUMBOS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "remero" })">REMERO</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "tablas" })">TABLAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "faroes" })">FAROES</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "laguna" })">LAGUNA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "cuerda" })">CUERDA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "bodega" })">BODEGA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "velero" })">VELERO</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "marfil" })">MARFIL</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "salado" })">SALADO</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "corsar" })">CORSAR</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "canons" })">CAÑONS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "bahiaa" })">BAHIAA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "balsas" })">BALSAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "grutas" })">GRUTAS</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "nortea" })">NORTEA</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "brujul" })">BRUJUL</a>
+            <a class="palabra" href="@Url.Action("Sala1", "Home", new { respuesta = "secret" })">SECRET</a>
         </div>
-
     </section>
-
 </main>
