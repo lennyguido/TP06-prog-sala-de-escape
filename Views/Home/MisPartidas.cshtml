@@ -1,0 +1,36 @@
+@{
+    ViewData["Title"] = "Mis Partidas";
+}
+
+<main class="sala">
+    <section class="sala-contenido">
+        <h1>Mis Partidas</h1>
+
+        <form asp-action="MisPartidas" asp-controller="Home" method="get">
+            <input type="text" name="nombreParticipante" placeholder="Tu nombre..." />
+            <button type="submit" class="hero__button">Buscar</button>
+        </form>
+
+        @if (ViewBag.Error != null)
+        {
+            <p style="color:red;">@ViewBag.Error</p>
+        }
+
+        @if (ViewBag.Partidas != null)
+        {
+            @foreach (var partida in ViewBag.Partidas)
+            {
+                <div class="info-card">
+                    <p>Partida N° @partida.PartidaId</p>
+                    <p>Fecha: @partida.FechaInicio.ToString("dd/MM/yyyy")</p>
+                    <p>Estado: @partida.Estado</p>
+
+                    @if (partida.Estado == "Activa")
+                    {
+                        <a class="opcion" href="@Url.Action("Continuar", "Home", new { partidaId = partida.PartidaId })">Continuar</a>
+                    }
+                </div>
+            }
+        }
+    </section>
+</main>

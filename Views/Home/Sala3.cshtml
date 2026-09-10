@@ -4,6 +4,19 @@
 
 <main class="sala">
     <section class="sala-contenido">
+    <div class="pistas">
+    <p>Pistas usadas: @ViewBag.Progreso.PistasSolicitadas / @ViewBag.Sala.LimitePistas</p>
+
+    @if (ViewBag.Progreso.PistasSolicitadas > 0)
+    {
+        <p><strong>Pista:</strong> @ViewBag.Sala.Pista</p>
+    }
+
+    @if (ViewBag.Progreso.PistasSolicitadas < ViewBag.Sala.LimitePistas)
+    {
+        <a class="opcion" href="@Url.Action("PedirPista", "Home", new { salaId = ViewBag.Sala.SalaId })">Pedir pista</a>
+    }
+</div>
         <h1>@ViewBag.Sala.Nombre</h1>
         <p>@ViewBag.Sala.Narrativa</p>
 

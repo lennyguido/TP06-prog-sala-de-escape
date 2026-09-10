@@ -7,7 +7,20 @@ namespace Tp06.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-    private BD bd = new BD();
+       private BD bd = new BD();
+    private const int DuracionMinutos = 15;
+
+    private int ObtenerSegundosRestantes(Partida partida)
+    {
+        int duracionTotalSegundos = DuracionMinutos * 60;
+        int transcurridos = (int)(DateTime.Now - partida.FechaInicio).TotalSeconds;
+        return duracionTotalSegundos - transcurridos;
+    }
+
+    private int ObtenerSegundosTranscurridos(Partida partida)
+    {
+        return (int)(DateTime.Now - partida.FechaInicio).TotalSeconds;
+    }
 
     public HomeController(ILogger<HomeController> logger)
     {
@@ -53,7 +66,12 @@ public class HomeController : Controller
         var partida = bd.ObtenerPartida(partidaId.Value);
         if (partida == null || partida.Estado != "Activa")
             return RedirectToAction("Index");
-
+        int segundosRestantes = ObtenerSegundosRestantes(partida);
+        if (segundosRestantes <= 0)
+        {
+            bd.VencerPartida(partidaId.Value, ObtenerSegundosTranscurridos(partida));
+            return RedirectToAction("Incorrecto");
+        }
         if (!bd.PuedeAccederASala(partidaId.Value, 1))
             return RedirectToAction("Index");
 
@@ -84,6 +102,7 @@ public class HomeController : Controller
         }
 
         ViewBag.Sala = sala;
+        ViewBag.Progreso = bd.ObtenerProgreso(partidaId.Value, sala.SalaId);
         return View();
     }
 
@@ -96,6 +115,12 @@ public class HomeController : Controller
         var partida = bd.ObtenerPartida(partidaId.Value);
         if (partida == null || partida.Estado != "Activa")
             return RedirectToAction("Index");
+                    int segundosRestantes = ObtenerSegundosRestantes(partida);
+        if (segundosRestantes <= 0)
+        {
+            bd.VencerPartida(partidaId.Value, ObtenerSegundosTranscurridos(partida));
+            return RedirectToAction("Incorrecto");
+        }
 
         if (!bd.PuedeAccederASala(partidaId.Value, 2))
             return RedirectToAction("Sala1");
@@ -127,6 +152,7 @@ public class HomeController : Controller
         }
 
         ViewBag.Sala = sala;
+        ViewBag.Progreso = bd.ObtenerProgreso(partidaId.Value, sala.SalaId);
         return View();
     }
 
@@ -139,6 +165,12 @@ public class HomeController : Controller
         var partida = bd.ObtenerPartida(partidaId.Value);
         if (partida == null || partida.Estado != "Activa")
             return RedirectToAction("Index");
+                    int segundosRestantes = ObtenerSegundosRestantes(partida);
+        if (segundosRestantes <= 0)
+        {
+            bd.VencerPartida(partidaId.Value, ObtenerSegundosTranscurridos(partida));
+            return RedirectToAction("Incorrecto");
+        }
 
         if (!bd.PuedeAccederASala(partidaId.Value, 3))
             return RedirectToAction("Sala1");
@@ -170,6 +202,7 @@ public class HomeController : Controller
         }
 
         ViewBag.Sala = sala;
+        ViewBag.Progreso = bd.ObtenerProgreso(partidaId.Value, sala.SalaId);
         return View();
     }
 
@@ -182,6 +215,7 @@ public class HomeController : Controller
         var partida = bd.ObtenerPartida(partidaId.Value);
         if (partida == null || partida.Estado != "Activa")
             return RedirectToAction("Index");
+            
 
         if (!bd.PuedeAccederASala(partidaId.Value, 4))
             return RedirectToAction("Sala1");
@@ -209,10 +243,62 @@ public class HomeController : Controller
                 bd.SumarIntento(partidaId.Value, sala.SalaId);
                 return RedirectToAction("Incorrecto");
             }
+            
         }
 
         ViewBag.Sala = sala;
+        ViewBag.Progreso = bd.ObtenerProgreso(partidaId.Value, sala.SalaId);
         return View();
+    }
+        // ================== SALIR ==================
+    public IActionResult Salir()
+    {
+        HttpContext.Session.Clear();
+        return RedirectToAction("Index");
+    }
+
+    // ================== MIS PARTIDAS ==================
+    public IActionResult MisPartidas(string nombreParticipante)
+    {
+        if (string.IsNullOrWhiteSpace(nombreParticipante))
+        {
+            ViewBag.Error = "Ingresá tu nombre para buscar tus partidas.";
+            return View();
+        }
+
+        var partidas = bd.ObtenerPartidasPorJugador(nombreParticipante);
+        ViewBag.Partidas = partidas;
+        ViewBag.NombreParticipante = nombreParticipante;
+        return View();
+    }
+
+    // ================== CONTINUAR ==================
+    public IActionResult Continuar(int partidaId)
+    {
+        var partida = bd.ObtenerPartida(partidaId);
+        if (partida == null || partida.Estado != "Activa")
+            return RedirectToAction("Index");
+
+        int salaActual = bd.ObtenerSalaActual(partidaId);
+
+        HttpContext.Session.SetInt32("PartidaId", partidaId);
+        HttpContext.Session.SetString("NombreParticipante", partida.NombreParticipante);
+
+        return RedirectToAction("Sala" + salaActual);
+    }
+        // ================== PEDIR PISTA ==================
+    public IActionResult PedirPista(int salaId)
+    {
+        int? partidaId = HttpContext.Session.GetInt32("PartidaId");
+        if (partidaId == null) return RedirectToAction("Identificarse");
+
+        var sala = bd.ObtenerSala(salaId);
+        var progreso = bd.ObtenerProgreso(partidaId.Value, salaId);
+
+        if (progreso.PistasSolicitadas < sala.LimitePistas)
+            bd.SumarPista(partidaId.Value, salaId);
+
+        return RedirectToAction("Sala" + sala.Orden);
     }
 
     public IActionResult Victoria()

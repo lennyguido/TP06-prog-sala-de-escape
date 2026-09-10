@@ -10,4 +10,5 @@ public class Sala
     public int Orden { get; set; }
     public int LimiteIntentos { get; set; }
     public int LimitePistas { get; set; }
+        public string Pista { get; set; }
 }
